@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+/* Ensure the entire page is filled */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Main container */
+.app-container {
+  background-image: url('/src/homebg.jpg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start; /* Adjust to keep the navbar at the top */
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Navbar styling */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Align items on both ends */
+  align-items: center; /* Center align items vertically */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex: 1; /* Makes About Us take up all the space on the left */
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a, .login-btn {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+.navbar a:hover, .login-btn:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Last child for login button */
+.navbar li:last-child {
+  margin-left: auto; /* Pushes the login button to the far right */
+}
+
+/* Content area */
+.content {
+  margin-top: 20px; /* Space below navbar */
+  flex: 1; /* Allows content to fill the remaining space */
+  display: flex; /* Flex container for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+h1 {
+  font-size: 48px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items on smaller screens */
+    align-items: flex-start; /* Align items to the left */
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar ul {
+    flex-direction: column; /* Stack navbar items */
+  }
+
+  .navbar li {
+    margin: 10px 0; /* Add spacing between items */
   }
 }
